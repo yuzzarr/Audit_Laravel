@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class periode_unit extends Model
+class Periode_unit extends Model
 {
     use HasFactory;
 

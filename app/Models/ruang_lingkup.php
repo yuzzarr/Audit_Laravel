@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ruang_lingkup extends Model
+class Ruang_lingkup extends Model
 {
     use HasFactory;
 
