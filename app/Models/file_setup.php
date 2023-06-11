@@ -12,5 +12,7 @@ class File_setup extends Model
     protected $table = 'file_setup';
     protected $primarykey = 'id_File_setup';
 
-    
+    protected $fillable = [
+        'nama_file'
+    ];
 }

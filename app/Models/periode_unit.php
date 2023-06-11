@@ -12,5 +12,8 @@ class Periode_unit extends Model
     protected $table = 'periode_unit';
     protected $primarykey = 'id_Periode_unit';
 
-    
+    protected $fillable = [
+        'tanggal_audit',
+        'master_auditor'
+    ];
 }

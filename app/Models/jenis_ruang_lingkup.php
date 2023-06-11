@@ -12,5 +12,8 @@ class Jenis_ruang_lingkup extends Model
     protected $table = 'jenis__ruang_lingkup';
     protected $primarykey = 'id_Jenis_ruang_lingkup';
 
-    
+    protected $fillabel = [
+        'nama_jenis_ruang_lingkup',
+        'deskripsi_jenis_ruang_lingkup'
+    ];
 }
