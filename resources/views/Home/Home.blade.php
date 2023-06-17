@@ -16,21 +16,25 @@
     <table border="1">
         <tr>
             <th>Nama</th>
+            <th>Username</th>
             <th>Email</th>
             <th>Nomor Telepon</th>
             <th>NIP</th>
+            <th>Action</th>
         </tr>
 
         @foreach($user as $p)
 
         <tr>
             <td>{{ $p->nama }}</td>
+            <td>{{ $p->username }}</td>
             <td>{{ $p->email }}</td>
             <td>{{ $p->no_telp }}</td>
             <td>{{ $p->nip }}</td>
             <td>
-                <a href="">Edit</a>
-                <a href="">Hapus</a>
+                <a href="Edit/{{ $p->id_User }}">Edit</a>
+                <!---->
+                <a href="Hapus/{{ $p->id_User }}">Hapus</a>
             </td>
         </tr>
         @endforeach

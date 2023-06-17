@@ -19,7 +19,7 @@
         Nama <input type="text" name="name" required="required"><br/>
         Username <input type="text" name="username" required="required"><br/>
         Email <input type="text" name="email" required="required"><br/>
-        Passowrd <input type="text" name="password" required="required"><br/>
+        Password <input type="text" name="password" required="required"><br/>
         NIP <input type="text" name="nip" required="required"><br/>
         Nomor Telepon <input type="text" name="no_telp" required="required"><br/>
         <input type="submit" value="Simpan Data">

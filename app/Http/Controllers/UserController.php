@@ -30,4 +30,31 @@ class UserController extends Controller
 
         return redirect('Home');
     }
+
+    public function Hapus(string $id){
+        $user = DB::table('user')->where('id_User',$id)->delete();
+        return redirect('Home');
+    }
+
+    public function Edit(string $id)
+    {
+        //$user = DB::table('user')->get();
+
+        return view('Home.Edit');
+    }
+
+    public function Update(Request $request, string $id)
+    {
+        $user = DB::table('user')->where('id_User', $id)->update([
+            'nama' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'no_telp' => $request->no_telp,
+            'password' => $request->password,
+            'nip' => $request->nip
+        ]);
+        
+
+        return redirect('Home');
+    }
 }

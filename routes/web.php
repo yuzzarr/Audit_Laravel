@@ -21,4 +21,7 @@ Route::get('/', function () {
 
 Route::get('/Home', [UserController::class, 'Home']);
 Route::get('/Tambah', [UserController::class, 'Tambah']);
+Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
+Route::get('/Edit/{id}', [UserController::class, 'Edit']);
+Route::post('/Update', [UserController::class, 'Update']);
 Route::post('/Store', [UserController::class, 'Store']);
