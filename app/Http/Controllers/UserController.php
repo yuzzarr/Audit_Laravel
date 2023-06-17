@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 
 class UserController extends Controller
@@ -38,14 +39,14 @@ class UserController extends Controller
 
     public function Edit(string $id)
     {
-        //$user = DB::table('user')->get();
+        $model = user::find($id)->get();
 
-        return view('Home.Edit');
+        return view('Home.Edit', compact('model'));
     }
 
     public function Update(Request $request, string $id)
     {
-        $user = DB::table('user')->where('id_User', $id)->update([
+        DB::table('user')->update([
             'nama' => $request->name,
             'username' => $request->username,
             'email' => $request->email,

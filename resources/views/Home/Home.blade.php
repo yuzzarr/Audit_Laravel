@@ -32,9 +32,9 @@
             <td>{{ $p->no_telp }}</td>
             <td>{{ $p->nip }}</td>
             <td>
-                <a href="Edit/{{ $p->id_User }}">Edit</a>
+                <a href="Edit/{{ $p->id }}">Edit</a>
                 <!---->
-                <a href="Hapus/{{ $p->id_User }}">Hapus</a>
+                <a href="Hapus/{{ $p->id }}">Hapus</a>
             </td>
         </tr>
         @endforeach
