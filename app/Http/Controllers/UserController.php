@@ -38,14 +38,13 @@ class UserController extends Controller
 
     public function Edit(string $id)
     {
-        //$user = DB::table('user')->get();
-
+        $user = DB::table('user')->where('id_User', $id)->get();
         return view('Home.Edit');
     }
 
     public function Update(Request $request, string $id)
     {
-        $user = DB::table('user')->where('id_User', $id)->update([
+        DB::table('user')->where('id_User', $id)->update([
             'nama' => $request->name,
             'username' => $request->username,
             'email' => $request->email,

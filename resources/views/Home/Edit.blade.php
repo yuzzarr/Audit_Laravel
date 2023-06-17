@@ -13,7 +13,7 @@
     <br/>
     <br/>
 
-    <form action="{{ url('Update/'.$user->id_User) }}" method="post" enctype="multipart/form-data">
+    <form action="/Edit" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         
         Nama <input type="text" name="name" required="required" value="{{ $user->name }}"><br/>
