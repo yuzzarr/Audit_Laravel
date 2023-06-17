@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -25,3 +26,4 @@ Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
 Route::get('/Edit/{id}', [UserController::class, 'Edit']);
 Route::post('/Update/{id}', [UserController::class, 'Update']);
 Route::post('/Store', [UserController::class, 'Store']);
+Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
