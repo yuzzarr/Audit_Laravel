@@ -17,6 +17,13 @@ class UserController extends Controller
         return view('Home.Home', compact('user'), compact('periode'));
     }
 
+    /*public function Setup_periode(){
+        //$user = DB::table('user')->get();
+        $periode = DB::table('periode')->get();
+
+        return view('Setup_periode',compact('periode'));
+    }*/
+
     public function Tambah(){
         return view('Home.Tambah');
     }

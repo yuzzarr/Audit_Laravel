@@ -21,6 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/Home', [UserController::class, 'Home']);
+Route::get('/Setup_periode', [UserController::class, 'Home']);
 Route::get('/Tambah', [UserController::class, 'Tambah']);
 Route::get('/Tambah-periode', [UserController::class, 'Tambah1']);
 Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
