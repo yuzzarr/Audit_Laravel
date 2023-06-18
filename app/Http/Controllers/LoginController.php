@@ -40,11 +40,27 @@ class LoginController extends Controller
         // ]);
 
         $user = User::where('nip','=',$request->nip)->first();
-        if($user && $request->password == $user->password){
+        $admin = User::join('administrator', 'user.id','=','administrator.id_User')->get([
+            'user.nip','user.password'
+        ])->where('nip','=', $request->nip)->first();
+
+        $auditee = User::join('auditee', 'user.id','=','auditee.id_User')->get([
+            'user.nip','user.password'
+        ])->where('nip','=', $request->nip)->first();
+
+        $auditor = User::join('auditor', 'user.id','=','auditor.id_User')->get([
+            'user.nip','user.password'
+        ])->where('nip','=', $request->nip)->first();
+
+        if($admin && $request->password == $admin->password){
             Auth::login($user);
             $request->session()->regenerate();
 
             return redirect()->intended('Home');
+        } elseif($auditee && $request->password == $auditee->password){
+            return "Auditee";
+        } elseif($auditor && $request->password == $auditor->password){
+            return "Auditor";
         } else {
             return redirect()->intended('Login')->with('alert');
         }
