@@ -40,5 +40,47 @@
         </tr>
         @endforeach
     </table>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <!-- CRUD SET UP PERIODE -->
+
+    <h3>Periode</h3>
+
+    <a href="/Tambah-periode">Tambah Periode</a>
+
+    <br/>
+    <br/>
+
+    <table border="1">
+        <tr>
+            <th>Tanggal Periode</th>
+            <th>No SK</th>
+            <th>File SK</th>
+            <th>Ketua SPI</th>
+            <th>NIP Ketua SPI</th>
+            <th>Action</th>
+        </tr>
+
+        @foreach($periode as $s)
+
+        <tr>
+            <td>{{ $s->tanggal_periode }}</td>
+            <td>{{ $s->no_sk }}</td>
+            <td>{{ $s->file_sk }}</td>
+            <td>{{ $s->ketua_spi }}</td>
+            <td>{{ $s->nip_ketua_spi }}</td>
+            <td>
+                <a href="Edit1/{{ $s->id_Periode }}">Edit</a>
+                <!---->
+                <a href="Hapus1/{{ $s->id_Periode }}">Hapus</a>
+            </td>
+        </tr>
+        @endforeach
+    </table>
+
 </body>
 </html>

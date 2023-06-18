@@ -14,7 +14,7 @@
     <br/>
 
     @foreach($model as $p)
-    <form action="/Update/{$p->id}" method="post" enctype="multipart/form-data">
+    <form action="/Update/{{$p->id}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         
         Nama <input type="text" name="name" required="required" value="{{ $p->nama }}"><br/>

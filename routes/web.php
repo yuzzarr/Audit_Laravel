@@ -22,10 +22,15 @@ Route::get('/', function () {
 
 Route::get('/Home', [UserController::class, 'Home']);
 Route::get('/Tambah', [UserController::class, 'Tambah']);
+Route::get('/Tambah-periode', [UserController::class, 'Tambah1']);
 Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
+Route::get('/Hapus1/{id_Periode}', [UserController::class, 'Hapus1']);
 Route::get('/Login', [LoginController::class, 'Login']);
 Route::get('/Edit/{id}', [UserController::class, 'Edit']);
+Route::get('/Edit1/{id_Periode}', [UserController::class, 'Edit1']);
 Route::post('/Update/{id}', [UserController::class, 'Update']);
+Route::post('/Update1/{id_Periode}', [UserController::class, 'Update1']);
 Route::post('/Store', [UserController::class, 'Store']);
+Route::post('/Store1', [UserController::class, 'Store1']);
 Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('login.perform');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
