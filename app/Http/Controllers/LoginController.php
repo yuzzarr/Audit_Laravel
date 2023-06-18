@@ -3,55 +3,59 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\LoginRequest;
 use Session;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
     public function Login()
     {
-        if (Auth::check()) {
+        if (Auth::check()){
             return redirect('Home');
-        }else{
+        } else {
             return view('Home.Login');
         }
     }
 
     public function actionLogin(Request $request)
     {
-        $admin = [
-            'nip' => $request->input('nip'),
-            'password' => $request->input('password'),
-        ];
+        // $userdata = [
+        //     'nip' => $request->input('email'),
+        //     'password' => $request->input('password'),
+        // ];
 
-        $auditor = [
-            'nip' => $request->input('nip'),
-            'password' => $request->input('password'),
-        ];
+        // if(Auth::Attempt($userdata)){
+        //     return redirect('Home');
+        // } else {
+        //     Return "error";
+        // }
 
-        $auditee = [
-            'nip' => $request->input('nip'),
-            'password' => $request->input('password'),
-        ];
+        // $request->validate([
+        //     'nip' => 'required',
+        //     'password' => 'required',
+        // ]);
 
-        if (Auth::Attempt($admin)) {
-            return redirect('Home');
-        }else if(Auth::Attempt($auditor)){
-            return redirect('Auditor');
-        }else if(Auth::Attempt($auditee)){
-            return redirect('Auditee');
-        }
-        else{
-            Session::flash('error', 'NIP atau Password Tidak Sesuai');
-            return redirect('/');
+        $user = User::where('nip','=',$request->nip)->first();
+        if($user && $request->password == $user->password){
+            Auth::login($user);
+            $request->session()->regenerate();
+
+            return redirect()->intended('Home');
+        } else {
+            return redirect()->intended('Login')->with('alert');
         }
     }
 
-    public function actionLogout()
-    {
+    public function logout(Request $request){
+        Session::flush();
         Auth::logout();
-        return redirect('/');
+
+        return redirect('Login');
     }
 }
 
->>>>>>> 8d3c8744a35f54fa88dfdf251e4ff8d11b277938
+

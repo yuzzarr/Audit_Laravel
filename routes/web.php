@@ -23,7 +23,9 @@ Route::get('/', function () {
 Route::get('/Home', [UserController::class, 'Home']);
 Route::get('/Tambah', [UserController::class, 'Tambah']);
 Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
+Route::get('/Login', [LoginController::class, 'Login']);
 Route::get('/Edit/{id}', [UserController::class, 'Edit']);
 Route::post('/Update/{id}', [UserController::class, 'Update']);
 Route::post('/Store', [UserController::class, 'Store']);
-Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
+Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('login.perform');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');

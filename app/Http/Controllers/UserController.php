@@ -33,7 +33,7 @@ class UserController extends Controller
     }
 
     public function Hapus(string $id){
-        $user = DB::table('user')->where('id_User',$id)->delete();
+        $user = DB::table('user')->where('id',$id)->delete();
         return redirect('Home');
     }
 

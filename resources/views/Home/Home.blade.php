@@ -9,6 +9,7 @@
     <h3>Data User</h3>
 
     <a href="/Tambah">Tambah User</a>
+    <button><a href="{{ route('logout') }}" >Logout</a></button>
 
     <br/>
     <br/>

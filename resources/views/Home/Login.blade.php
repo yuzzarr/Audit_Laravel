@@ -40,21 +40,20 @@
                                         Sebelas Maret Audit System</h1>
                                         <h2><b>Login sebagai Admin </b></h2>
                                     </div>
-                                    <form class="user" action="{{ route('actionLogin') }}" method="post">
+                                    <form class="user" action="{{ route('login.perform') }}" method="post">
+                                        <div class="form-group alert-danger">
+                                            NIP atau Password Salah!!
+                                        </div>
                                     @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" type="text" aria-describedby="emailHelp"
-                                                placeholder="Masukkan NIP">
+                                            <input type="text" class="form-control form-control-user" name="nip" type="text" placeholder="Masukkan NIP">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="Masukkan password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
                                         </div>
-                                        
-                                        <a href="/Home" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                         <hr>
                                         <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -92,6 +91,14 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+    <script>
+        var msg = '{{ Session::get('alert') }}';
+        var exist = '{{ Session::has('alert') }}';
+
+        if(exist){
+            show.alert(msg);
+        }
+    </script>
 </body>
 
 </html>
