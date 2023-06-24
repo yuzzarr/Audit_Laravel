@@ -189,7 +189,7 @@
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Tambah Periode</h6>
-                            <!--a href="admin - setup periode.html"--><button type="submit" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
+                            <!--a href="/Store1"-->
                         </div>
                         <!-- Card Body -->
                         <form action="/Store1" method="post">
@@ -233,6 +233,7 @@
                                             <input type="text" name="nip_ketua_spi" required="required" class="form-control" id="exampleFormControlInput1" style="width: 45vw; margin-bottom: 3vh;" placeholder="Masukkan NIP Ketua">
                                         </div> 
                                     </div>
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
                                 </div>
                             </div>
                         </div>

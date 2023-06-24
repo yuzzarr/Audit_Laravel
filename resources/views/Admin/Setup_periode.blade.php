@@ -80,7 +80,7 @@
                 <div id="collapseUser" class="collapse" aria-labelledby="headingUser"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="admin - data akun.html">Data Akun</a>
+                        <a class="collapse-item" href="/Home">Data Akun</a>
                     </div>
                 </div>
             </li>
@@ -95,7 +95,7 @@
                 <div id="collapseSetup" class="collapse" aria-labelledby="headingSetup"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/Tambah-periode">Setup Periode Audit</a>
+                        <a class="collapse-item" href="/Setup_periode">Setup Periode Audit</a>
                         <a class="collapse-item" href="admin - setup unit.html">Setup Unit</a>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Data Periode</h6>
-                            <a href="/Tambah1"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
+                            <a href="/Admin/Tambah-periode"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
@@ -229,7 +229,7 @@
 
                                 <tr>
                                     <td>{{ $pr->tanggal_periode }}</td>
-                                    <!--td>{{ $p->username }}</td-->
+                                    
                                     <td>{{ $pr->no_sk }}</td>
                                     <td>{{ $pr->file_sk }}</td>
                                     <td>{{ $pr->ketua_spi }}</td>
@@ -241,41 +241,7 @@
                                     
                                 </tr>
                                 @endforeach
-                                    <td>05/25/2023</td>
-                                    <td>SS674839/XX/IV</td>
-                                    <td></td>
-                                    <td>01/01/2023</td>
-                                    <td>Dr. Tatang</td>
-                                    <td>S1234567</td>
-                                    <td class="action" >
-                                        <a href="admin - edit periode.html"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1vw; width: 5vw; margin-top: 0vh;">Edit</button> </a>
-                                        <button type="button" class="btn btn-danger" style="border-radius:10px; font-size: 1vw; width: 6vw;  margin-top: 0vh;">Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>05/25/2023</td>
-                                    <td>SS674839/XX/IV</td>
-                                    <td></td>
-                                    <td>01/01/2023</td>
-                                    <td>Dr. Tatang</td>
-                                    <td>S1234567</td>
-                                    <td class="action" >
-                                        <a href="admin - edit periode.html"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1vw; width: 5vw; margin-top: 0vh;">Edit</button> </a>
-                                        <button type="button" class="btn btn-danger" style="border-radius:10px; font-size: 1vw; width: 6vw;  margin-top: 0vh;">Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>05/25/2023</td>
-                                    <td>SS674839/XX/IV</td>
-                                    <td></td>
-                                    <td>01/01/2023</td>
-                                    <td>Dr. Tatang</td>
-                                    <td>S1234567</td>
-                                    <td class="action" >
-                                        <a href="admin - edit periode.html"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1vw; width: 5vw; margin-top: 0vh;">Edit</button> </a>
-                                        <button type="button" class="btn btn-danger" style="border-radius:10px; font-size: 1vw; width: 6vw;  margin-top: 0vh;">Hapus</button>
-                                    </td>
-                                </tr>
+                                    
                             </tbody>
                           </table>
                             </div>

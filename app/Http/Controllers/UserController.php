@@ -12,24 +12,24 @@ class UserController extends Controller
 {
     public function Home(){
         $user = DB::table('user')->get();
-        $periode = DB::table('periode')->get();
+        //$periode = DB::table('periode')->get();
 
-        return view('Home.Home', compact('user'), compact('periode'));
+        return view('Home.Home', compact('user'));
     }
 
-    /*public function Setup_periode(){
+    public function Setup_periode(){
         //$user = DB::table('user')->get();
         $periode = DB::table('periode')->get();
 
-        return view('Setup_periode',compact('periode'));
-    }*/
+        return view('Admin.Setup_periode',compact('periode'));
+    }
 
     public function Tambah(){
         return view('Home.Tambah');
     }
 
     public function Tambah1(){
-        return view('Home.Tambah-periode');
+        return view('Admin.Tambah-periode');
     }
 
     public function Store(Request $request){
@@ -54,7 +54,7 @@ class UserController extends Controller
             'nip_ketua_spi' => $request->nip_ketua_spi
         ]);
 
-        return redirect('Home');
+        return redirect('Setup_periode');
     }
 
     public function Hapus(string $id){
@@ -78,7 +78,7 @@ class UserController extends Controller
     {
         $model = DB::table('periode')->where('id_Periode', $id_Periode)->get();
 
-        return view('Home.Edit1', compact('model'));
+        return view('Admin.Edit1', compact('model'));
     }
 
     public function Update(Request $request, string $id)

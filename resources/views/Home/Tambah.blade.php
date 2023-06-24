@@ -211,7 +211,7 @@
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Tambah Akun</h6>
                             
-                            <!--a href="admin - data akun.html"--><button type="submit" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
+                            <!--a href="admin - data akun.html"-->
                         </div>
                         <!-- Card Body -->
                         <form action="/Store" method="post">
@@ -245,8 +245,10 @@
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">NIP</label>
                                             <input type="text" name="nip" required="required" class="form-control" id="exampleFormControlInput1" style="width: 45vw;" placeholder="Masukkan NIP">
-                                        </div> 
+                                        </div>
+
                                     </div>
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
                                 </div>
                             </div>
                         </div>
