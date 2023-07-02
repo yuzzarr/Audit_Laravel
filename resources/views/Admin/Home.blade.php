@@ -218,7 +218,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
                                     @foreach($user as $p)
 
                                     <tr>

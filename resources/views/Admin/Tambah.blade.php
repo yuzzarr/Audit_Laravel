@@ -237,6 +237,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                            <input type="text" name="username" required="required" class="form-control" id="exampleFormControlInput1" style="width: 45vw;" placeholder="Masukkan Username">
+                                        </div> 
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                            <input type="password" name="password" required="required" class="form-control" id="exampleFormControlInput1" style="width: 45vw;" placeholder="Masukkan Username">
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Nomor Telepon</label>
                                             <input type="text" name="no_telp" required="required" class="form-control" id="exampleFormControlInput1" style="width: 45vw;" placeholder="Masukkan nomor telepon">
                                         </div> 

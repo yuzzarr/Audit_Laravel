@@ -208,7 +208,6 @@
                                     <th scope="col">Tanggal Audit</th>
                                     <th scope="col">No SK Audit</th>
                                     <th scope="col">File SK</th>
-                                    <th scope="col">Tanggal SK</th>
                                     <th scope="col">Ketua SPI</th>
                                     <th scope="col">NIP Ketua SPI</th>
                                     <th scope="col">Aksi</th>
@@ -220,7 +219,6 @@
 
                                 <tr>
                                     <td>{{ $pr->tanggal_periode }}</td>
-                                    
                                     <td>{{ $pr->no_sk }}</td>
                                     <td>{{ $pr->file_sk }}</td>
                                     <td>{{ $pr->ketua_spi }}</td>

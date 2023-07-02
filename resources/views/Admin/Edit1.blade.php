@@ -189,9 +189,13 @@
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Edit Periode</h6>
-                            <!--a href="admin - setup periode.html"--><button type="submit" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Edit</button></a>
+                            <!--a href="admin - setup periode.html"-->
                         </div>
                         <!-- Card Body -->
+
+                        @foreach($model as $p)
+                        <form action="/Update1/{{ $p->id_Periode }}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                         <div class="card-body">
                             <div class="chart-area">
                                 <div class="row-contain" style="margin-left: 10px;"> 
@@ -231,9 +235,12 @@
                                             <input type="text" name="nip_ketua_spi" required="required" value="{{ $p->nip_ketua_spi }}" class="form-control" id="exampleFormControlInput1" style="width: 45vw; margin-bottom: 3vh;" >
                                         </div> 
                                     </div>
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Edit</button></a>
                                 </div>
                             </div>
                         </div>
+                        </form>
+                        @endforeach
                     </div>
                     <footer class="sticky-footer bg-white">
                         <div class="container my-auto">
