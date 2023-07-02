@@ -1,3 +1,5 @@
+@extends('dashboard.Sidebar-nav')
+@section('title', 'Tambah Akun User')
 <!DOCTYPE html>
 <html lang="en">
 

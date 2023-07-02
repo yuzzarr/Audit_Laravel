@@ -18,7 +18,7 @@ use App\Http\Controllers\PeriodeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Landing-page');
 });
 
 Route::get('/Home', [UserController::class, 'Home']);
