@@ -17,7 +17,7 @@ class LoginController extends Controller
         if (Auth::check()){
             return redirect('Home');
         } else {
-            return view('Home.Login');
+            return view('Login');
         }
     }
 
@@ -70,7 +70,7 @@ class LoginController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect('Login');
+        return redirect('');
     }
 }
 

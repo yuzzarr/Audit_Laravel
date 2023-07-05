@@ -220,7 +220,9 @@
                                 <tr>
                                     <td>{{ $pr->tanggal_periode }}</td>
                                     <td>{{ $pr->no_sk }}</td>
-                                    <td>{{ $pr->file_sk }}</td>
+                                    <td align="center">
+                                        <a href="FileSK/{{$pr->file_sk}}"><button class="btn btn-success" type="button">Download</button></a>
+                                    </td>
                                     <td>{{ $pr->ketua_spi }}</td>
                                     <td>{{ $pr->nip_ketua_spi }}</td>
                                     <td class="action" >

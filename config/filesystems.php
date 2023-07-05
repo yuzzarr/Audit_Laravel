@@ -56,6 +56,10 @@ return [
             'throw' => false,
         ],
 
+        'FileSK' => [
+            'driver' => 'local',
+            'root' => public_path('FileSK'),
+        ],
     ],
 
     /*

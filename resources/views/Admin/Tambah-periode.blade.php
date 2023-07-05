@@ -192,7 +192,7 @@
                             <!--a href="/Store1"-->
                         </div>
                         <!-- Card Body -->
-                        <form action="/Store1" method="post">
+                        <form action="/Store1" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                             <div class="chart-area">

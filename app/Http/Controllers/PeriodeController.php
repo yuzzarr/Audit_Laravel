@@ -9,6 +9,7 @@ use App\Models\Periode;
 use App\Models\Periode_unit;
 use App\Models\Unit;
 use App\Models\User;
+use File;
 
 class PeriodeController extends Controller
 {
@@ -24,10 +25,16 @@ class PeriodeController extends Controller
     }
 
     public function Store1(Request $request){
+        
+
+        $file = $request->file('file_sk');
+        $nama_dokumen = 'SK'.$request->tanggal_periode.'.'.$request->file('file_sk')->getClientOriginalExtension();
+        $file->move('FileSK/', $nama_dokumen);
+
         DB::table('periode')->insert([
             'tanggal_periode' => $request->tanggal_periode,
             'no_sk' => $request->no_sk,
-            'file_sk' => $request->file_sk,
+            'file_sk' => $nama_dokumen,
             'ketua_spi' => $request->ketua_spi,
             'nip_ketua_spi' => $request->nip_ketua_spi
         ]);
@@ -36,6 +43,9 @@ class PeriodeController extends Controller
     }
 
     public function Hapus1(string $id_Periode){
+        $user = DB::table('periode')->where('id_Periode',$id_Periode)->first();
+        File::delete('FileSK/'.$user->file_sk);
+        // unlink('FileSK/'.$user->file_sk);
         $user = DB::table('periode')->where('id_Periode',$id_Periode)->delete();
         return redirect('Setup_periode');
     }
@@ -49,17 +59,28 @@ class PeriodeController extends Controller
 
     public function Update1(Request $request, String $id_Periode)
     {
+        $periode = DB::table('periode')->where('id_Periode', $id_Periode);
+
+        // Check if a new file is selected
+        if ($request->hasFile('file_sk')) {
+            $file = $request->file('file_sk');
+            $nama_dokumen = 'SK'.$request->tanggal_periode.'.'. $file->getClientOriginalExtension();
+            $file->move('FileSK/', $nama_dokumen);
+
+            // Update the file_sk field with the new file name
+            DB::table('periode')->where('id_Periode', $id_Periode)->update([
+                'file_sk' => $nama_dokumen,
+            ]);
+        }
+
         DB::table('periode')->where('id_Periode', $id_Periode)->update([
             'tanggal_periode' => $request->tanggal_periode,
             'no_sk' => $request->no_sk,
-            'file_sk' => $request->file_sk,
             'ketua_spi' => $request->ketua_spi,
             'nip_ketua_spi' => $request->nip_ketua_spi
         ]);
         
-
-        
-            return redirect('Setup_periode');    
+        return redirect('Setup_periode');
         
     }
 

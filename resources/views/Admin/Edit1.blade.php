@@ -214,7 +214,12 @@
                                     <div class="row">
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">File SK</label>
-                                            <input type="file" name="file_sk" required="required" value="{{ $p->file_sk }}" class="form-control" id="form-file" style="width: 45vw; padding: 0; height: fit-content;" >
+                                            <input type="file" name="file_sk" value="{{$p->file_sk}}" class="form-control" id="form-file" style="width: 45vw; padding: 0; height: fit-content;" >
+                                            @if($p->file_sk)
+                                                <p>{{ $p->file_sk }}</p>
+                                            @else
+                                                <p>Tidak ada file terlampir</p>
+                                            @endif
                                         </div> 
                                     </div>
                                     <!--div class="row">
