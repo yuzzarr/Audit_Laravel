@@ -131,7 +131,7 @@ class PeriodeController extends Controller
         //, 'unit', 'periode_unit.id_Unit', '=', 'unit.id_Unit'
 
         $periode_unit = Periode_unit::join('periode', 'periode_unit.id_Periode', '=', 'periode.id_Periode')->join('unit', 'periode_unit.id_Unit', '=', 'unit.id_Unit')->get([
-            'periode_unit.id_Periode_unit', 'periode_unit.tanggal_audit', 'periode_unit.master_auditor', 'periode.no_sk', 'unit.nama_unit'
+            'periode_unit.id_Periode_unit', 'periode_unit.tanggal_audit', 'periode_unit.master_auditor', 'periode.file_sk', 'unit.nama_unit'
         ]);
 
         return view('Admin.Setup_periode-unit', compact('periode_unit'));

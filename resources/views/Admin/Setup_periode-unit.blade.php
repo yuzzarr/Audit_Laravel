@@ -41,7 +41,9 @@
                                         <td>{{ $p->tanggal_audit }}</td>
                                         <td>{{ $p->master_auditor }}</td>
                                         <td>{{ $p->nama_unit }}</td>
-                                        <td>{{ $p->no_sk }}</td>
+                                        <td align="center">
+                                            <a href="FileSK/{{$p->file_sk}}"><button class="btn btn-success" type="button">Download</button></a>
+                                        </td>
                                         <td class="action">
                                             <a href="EditPeriodeUnit/{{ $p->id_Periode_unit }}"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0vh;">Edit</button> </a>
                                             <a href="HapusPeriodeUnit/{{ $p->id_Periode_unit }}"><button type="button" class="btn btn-danger" style="border-radius:10px; font-size: 1.2vw; width: 7vw;  margin-top: 0vh;">Hapus</button>
