@@ -12,13 +12,13 @@
     <title>@yield('title')</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{('assets/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{('assets/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -56,20 +56,6 @@
                 @yield('sidebar-heading')
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Standar</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="admin - standar ruang lingkup.html">Standar</a>
-                    </div>
-                </div>
-            </li>
-
             <!-- Nav Item - Data User Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
@@ -95,8 +81,9 @@
                 <div id="collapseSetup" class="collapse" aria-labelledby="headingSetup"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/Tambah-periode">Setup Periode Audit</a>
-                        <a class="collapse-item" href="admin -index.html">Setup Unit</a>
+                        <a class="collapse-item" href="/Setup_periode">Setup Periode Audit</a>
+                        <a class="collapse-item" href="/Setup_periode-unit">Setup Periode Unit</a>
+                        <a class="collapse-item" href="/Setup_unit">Setup Unit</a>
                     </div>
                 </div>
             </li>
@@ -178,7 +165,7 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">@yield('profile-id')</span>
                             <img class="img-profile rounded-circle"
-                                src="{{'assets/img/undraw_profile.svg'}}">
+                                src="{{asset('assets/img/undraw_profile.svg')}}">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -199,26 +186,10 @@
 
             </nav>
             
-            <div id="content">
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><b> @yield('subtitle-page')</b> / @yield('subtitle-page2')</h1>
-                    </div>
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div
-                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary"> @yield('table-title')</h6>
-                            <a href="/Tambah"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                            <div class="chart-area">
+            
             @yield('content')
             @include('layouts.Footer')
+            @include('layouts.Logout-Modal')  
             
 </body>
 </html>
