@@ -36,7 +36,7 @@
                             </div>
                             <div class="row">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Kepala Auditor</label>
+                                    <label for="exampleFormControlInput1" class="form-label">NIP Kepala Auditor</label>
                                     <input type="text" name="master_auditor" required="required" class="form-control" id="exampleFormControlInput1" style="width: 45vw;" placeholder="Masukkan Nama Kepala Auditor">
                                 </div> 
                             </div>

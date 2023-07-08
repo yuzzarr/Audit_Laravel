@@ -8,25 +8,59 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Periode;
 use App\Models\User;
 use App\Models\Auditor;
+use App\Models\File_setup;
+use File;
 
-class AuditorController extends Controller
+class MasterAuditorController extends Controller
 {
+    public function HomeMasterAuditor(){
+        $idPeriodeUnit = session('id_periode_unit');
+
+        $auditor = DB::table('auditor')->join('periode_unit', 'auditor.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->join('user', 'auditor.id_User', '=', 'user.id')->where('periode_unit.id_Periode_unit', $idPeriodeUnit)->get();
+        // $user = DB::table('user')->get();
+        //$periode = DB::table('periode')->get();
+
+        return view('MasterAuditor.HomeMasterAuditor', compact('auditor'));
+    }
+
+    public function TambahAuditor(){
+        return view('MasterAuditor.TambahAuditor');
+    }
+
+    public function StoreAuditor(Request $request){
+        $idPeriodeUnit = session('id_periode_unit');
+
+        $user = DB::table('user')->where('user.nip', $request->nip)->first();
+
+        DB::table('auditor')->insert([
+            'id_User' => $user->id,
+            'id_Periode_unit' => $idPeriodeUnit,
+        ]);
+
+        return redirect('HomeMasterAuditor');
+    }
+
+    public function HapusAuditor(string $id_Auditor){
+        $auditor = DB::table('auditor')->where('id_Auditor',$id_Auditor)->delete();
+        return redirect('HomeMasterAuditor');
+    }
+
     //SETUP FILE DAN SETUP RUANG LINGKUP
-    public function SetupFile2(){
+    public function SetupFile(){
         $idPeriodeUnit = session('id_periode_unit');
 
         $setupfile = DB::table('file_setup')->join('ruang_lingkup', 'file_setup.id_ruang_lingkup', '=', 'ruang_lingkup.id_Ruang_lingkup')->join('periode_unit', 'ruang_lingkup.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->join('jenis__ruang_lingkup', 'ruang_lingkup.id_Jenis_ruang_lingkup', '=', 'jenis__ruang_lingkup.id_Jenis_ruang_lingkup')->join('unit', 'periode_unit.id_Unit', '=', 'unit.id_Unit')->join('auditee', 'file_setup.id_Auditee', '=', 'auditee.id_Auditee')->join('user', 'auditee.id_User', '=', 'user.id')->get();
 
-        return view('Auditor.Setup_file2', compact('setupfile'));
+        return view('MasterAuditor.Setup_file', compact('setupfile'));
     }
 
-    public function TambahFile2(){
+    public function TambahFile(){
         $setupfile = DB::table('jenis__ruang_lingkup')->get();
 
-        return view('Auditor.Tambah-file2', compact('setupfile'));
+        return view('MasterAuditor.Tambah-file', compact('setupfile'));
     }
 
-    public function StoreFile2(Request $request)
+    public function StoreFile(Request $request)
     {
         $idPeriodeUnit = session('id_periode_unit');
 
@@ -64,20 +98,20 @@ class AuditorController extends Controller
             'id_Ruang_lingkup' => $ruang_lingkup
         ]);
 
-        return redirect('Setup_file2');
+        return redirect('Setup_file');
     }
 
-    public function EditFile2(String $id_Ruang_lingkup){
+    public function EditFile(String $id_Ruang_lingkup){
         $idPeriodeUnit = session('id_periode_unit');
 
         $jenis_ruang_lingkup = DB::table('jenis__ruang_lingkup')->get();
 
         $setupfile = DB::table('file_setup')->join('ruang_lingkup', 'file_setup.id_ruang_lingkup', '=', 'ruang_lingkup.id_Ruang_lingkup')->join('periode_unit', 'ruang_lingkup.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->join('jenis__ruang_lingkup', 'ruang_lingkup.id_Jenis_ruang_lingkup', '=', 'jenis__ruang_lingkup.id_Jenis_ruang_lingkup')->join('unit', 'periode_unit.id_Unit', '=', 'unit.id_Unit')->join('auditee', 'file_setup.id_Auditee', '=', 'auditee.id_Auditee')->join('user', 'auditee.id_User', '=', 'user.id')->where('ruang_lingkup.id_Ruang_lingkup', $id_Ruang_lingkup)->get();
 
-        return view('Auditor.EditFile2', compact('setupfile', 'jenis_ruang_lingkup'));
+        return view('MasterAuditor.EditFile', compact('setupfile', 'jenis_ruang_lingkup'));
     }
 
-    public function UpdateFile2(Request $request, String $id_Ruang_lingkup)
+    public function UpdateFile(Request $request, String $id_Ruang_lingkup)
     {
         $idPeriodeUnit = session('id_periode_unit');
 
@@ -130,12 +164,12 @@ class AuditorController extends Controller
             DB::table('auditee')->where('id_Auditee', $existingAuditeeId)->delete();
         }
 
-        return redirect('Setup_file2');
+        return redirect('Setup_file');
     }
 
 
 
-    public function HapusFile2(Request $request, $id_Ruang_lingkup)
+    public function HapusFile(Request $request, $id_Ruang_lingkup)
     {
         $idPeriodeUnit = session('id_periode_unit');
 
@@ -146,7 +180,10 @@ class AuditorController extends Controller
         $auditeeIds = DB::table('file_setup')->where('id_Ruang_lingkup', $id_Ruang_lingkup)->pluck('id_Auditee');
 
         // Cek apakah ada setup file lain yang menggunakan id auditee yang sama
-        $setupFileLain = DB::table('file_setup')->whereIn('id_Auditee', $auditeeIds)->where('id_Ruang_lingkup', '<>', $id_Ruang_lingkup)->first();
+        $setupFileLain = DB::table('file_setup')
+                            ->whereIn('id_Auditee', $auditeeIds)
+                            ->where('id_Ruang_lingkup', '<>', $id_Ruang_lingkup)
+                            ->first();
 
         if (!$setupFileLain) {
             // Tidak ada setup file lain yang menggunakan id auditee yang sama
@@ -160,25 +197,25 @@ class AuditorController extends Controller
         // Menghapus data dari tabel ruang_lingkup
         DB::table('ruang_lingkup')->where('id_Ruang_lingkup', $id_Ruang_lingkup)->delete();
 
-        return redirect('Setup_file2');
+        return redirect('Setup_file');
     }
 
     //DATA AUDIT
-    public function DataAudit2(){
+    public function DataAudit(){
         $idPeriodeUnit = session('id_periode_unit');
 
         $setupfile = DB::table('file_setup')->join('ruang_lingkup', 'file_setup.id_ruang_lingkup', '=', 'ruang_lingkup.id_Ruang_lingkup')->join('periode_unit', 'ruang_lingkup.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->join('jenis__ruang_lingkup', 'ruang_lingkup.id_Jenis_ruang_lingkup', '=', 'jenis__ruang_lingkup.id_Jenis_ruang_lingkup')->join('unit', 'periode_unit.id_Unit', '=', 'unit.id_Unit')->join('auditee', 'file_setup.id_Auditee', '=', 'auditee.id_Auditee')->join('user', 'auditee.id_User', '=', 'user.id')->get();
 
-        return view('Auditor.Data_audit2', compact('setupfile'));
+        return view('MasterAuditor.Data_audit', compact('setupfile'));
     }
 
-    public function TambahFileKTA2($id_File_setup){
+    public function TambahFileKTA($id_File_setup){
         $setupfile = DB::table('file_setup')->where('id_File_setup', $id_File_setup)->get();
 
-        return view('Auditor.Tambah-file_kta2', compact('setupfile'));
+        return view('MasterAuditor.Tambah-file_kta', compact('setupfile'));
     }
 
-    public function StoreFileKTA2(Request $request, $id_File_setup){
+    public function StoreFileKTA(Request $request, $id_File_setup){
         $idPeriodeUnit = session('id_periode_unit');
 
         $user = DB::table('auditor')->join('user', 'auditor.id_User', '=', 'user.id')->where('id_Periode_unit', $idPeriodeUnit)->first();
@@ -193,6 +230,6 @@ class AuditorController extends Controller
             'file_kta' => $nama_dokumen
         ]);
 
-        return redirect('Data_audit2');
+        return redirect('Data_audit');
     }
 }
