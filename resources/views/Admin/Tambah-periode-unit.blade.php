@@ -14,7 +14,7 @@
             <h1 class="h3 mb-0 text-gray-800"> <b> @yield('subtitle-page') </b> / @yield('subtitle-page2')</h1>
         </div>
         <!-- Content Row -->
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-4" style="height: 500px ">
             <!-- Card Header - Dropdown -->
             <div
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -43,17 +43,20 @@
                             <div class="row">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Nama Unit</label>
-                                    <select name="id_Unit" id="id_Unit">
-                                        @foreach($unit as $p)
-                                        <option value="{{ $p->id_Unit }}">{{ $p->nama_unit }}</option>
-                                        @endforeach
-                                    </select>
+                                        <!--label class="visually-hidden" for="specificSizeSelect">Jenis Ruang Lingkup</label> <br-->
+                                        <select class="form-control" id="specificSizeSelect" name="id_Unit" style="width: 100%; margin-bottom: 1.5vh;">
+                                            <option selected>-- Pilih Nama Unit --</option>
+                                            @foreach($unit as $p)
+                                            <option value="{{ $p->id_Unit }}">{{ $p->nama_unit }}</option>
+                                            @endforeach
+                                        </select>   
                                 </div> 
                             </div>
                             <div class="row">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">No SK</label>
-                                    <select name="id_Periode" id="id_Periode">
+                                    <select class="form-control" id="specificSizeSelect" name="id_Periode" style="width: 100%; margin-bottom: 1.5vh;">
+                                    <option selected>-- Pilih No SK --</option>
                                         @foreach($periode as $p)
                                         <option value="{{ $p->id_Periode }}">{{ $p->no_sk }}</option>
                                         @endforeach

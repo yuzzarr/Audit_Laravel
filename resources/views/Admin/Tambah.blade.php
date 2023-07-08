@@ -5,9 +5,10 @@
 @section('subtitle-page', 'User')
 @section('subtitle-page2', 'Data Akun / Tambah Akun')
 @section('table-title', 'Data User')
-@section('content')
 
 <!-- Main Content -->
+@section('content')
+
 <div id="content">
     <!-- Begin Page Content -->
     <div class="container-fluid">

@@ -1,5 +1,5 @@
 @extends('dashboard.Sidebar-nav')
-@section('title', 'Data Periode')
+@section('title', 'SMAS | Data Periode')
 <!--DOCTYPE html>
 <html lang="en">
 

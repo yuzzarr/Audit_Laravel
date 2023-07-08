@@ -27,9 +27,6 @@ Route::get('/Home', [UserController::class, 'Home']);
 Route::get('/Tambah', [UserController::class, 'Tambah']);
 Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
 Route::get('/Edit/{id}', [UserController::class, 'Edit']);
-
-Route::patch('/Update/{id}', 'UserController@Update');
-
 Route::post('/Store', [UserController::class, 'Store']);
 Route::post('/Update/{id}', [UserController::class, 'Update']);
 

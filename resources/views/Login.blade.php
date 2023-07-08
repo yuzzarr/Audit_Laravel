@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SMAS - Login Admin</title>
+    <title>SMAS - Login</title>
 
     <!-- Font-->
     

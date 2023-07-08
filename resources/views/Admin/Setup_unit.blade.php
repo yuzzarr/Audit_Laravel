@@ -1,5 +1,5 @@
 @extends('dashboard.Sidebar-nav')
-@section('title', 'Data Unit')
+@section('title', 'SMAS | Data Unit')
 @section('sidebar-heading', 'Admin')
 @section('profile-id', 'Admin')
 @section('subtitle-page', 'Setup')

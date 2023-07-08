@@ -1,5 +1,5 @@
 @extends('dashboard.Sidebar-nav')
-@section('title', 'Data User')
+@section('title', 'SMAS | Data User')
 <!--DOCTYPE html>
 <html lang="en">
 
@@ -201,10 +201,10 @@
             </nav-->
             @section('sidebar-heading', 'Admin')
             @section('profile-id', 'Admin')
-            <!-- Main Content -->
             @section('subtitle-page', 'User')
             @section('subtitle-page2', 'Data Akun')
-            @section('table-title', 'Data Akun')      
+            @section('table-title', 'Data Akun')
+            <!-- Main Content -->      
             @section('content')
             <div id="content">
                 <!-- Begin Page Content -->
