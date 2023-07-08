@@ -60,6 +60,11 @@ return [
             'driver' => 'local',
             'root' => public_path('FileSK'),
         ],
+
+        'FileRuangLingkup' => [
+            'driver' => 'local',
+            'root' => public_path('FileRuangLingkup'),
+        ],
     ],
 
     /*

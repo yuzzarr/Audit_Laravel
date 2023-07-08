@@ -149,11 +149,19 @@ class PeriodeController extends Controller
     }
     
     public function StorePeriodeUnit(Request $request){
-        DB::table('periode_unit')->insert([
+        $periode_unit_id = DB::table('periode_unit')->insertGetId([
             'tanggal_audit' => $request->tanggal_audit,
             'master_auditor' => $request->master_auditor,
             'id_Unit' => $request->id_Unit,
             'id_Periode' => $request->id_Periode
+        ]);
+
+        $ketua_auditor = DB::table('periode_unit')->where('id_Periode_unit', $periode_unit_id)->first();
+        $nip_ketua_auditor = DB::table('user')->where('nip', $request->master_auditor)->first();
+
+        DB::table('auditor')->insert([
+            'id_User' => $nip_ketua_auditor->id,
+            'id_Periode_unit' => $ketua_auditor->id_Periode_unit
         ]);
 
         return redirect('Setup_periode-unit');
