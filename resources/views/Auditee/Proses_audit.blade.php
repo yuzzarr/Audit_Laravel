@@ -30,7 +30,9 @@
             <td>{{ $p->nama_jenis_ruang_lingkup }}</td>
             <td>{{ $p->nama }}</td>
             <td>
+                @if ($p->status == 'Open')
                 <a href="/Tambah-file-audit/{{ $p->id_File_setup }}"><button class="btn btn-success" type="button">Unggah</button></a>
+                @endif
                 @if ($p->file_audit)
                 <a href="FileAudit/{{ $p->file_audit }}"><button class="btn btn-success" type="button">Download</button></a>
                 @else
@@ -46,7 +48,9 @@
             </td>
             <td>
                 @if ($p->file_kta)
+                    @if ($p->status == 'Open')
                     <a href="/Tambah-file-feedback/{{ $p->id_File_setup }}"><button class="btn btn-success" type="button">Unggah</button></a>
+                    @endif
                     @if ($p->file_feedback)
                     <a href="FileFeedback/{{ $p->file_feedback }}"><button class="btn btn-success" type="button">Download</button></a>
                     @endif

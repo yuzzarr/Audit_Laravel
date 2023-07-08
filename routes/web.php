@@ -94,6 +94,11 @@ Route::get('/Data_audit', [MasterAuditorController::class, 'DataAudit']);
 Route::get('/Tambah-file_kta/{id_File_setup}', [MasterAuditorController::class, 'TambahFileKTA']);
 Route::post('/StoreFileKTA/{id_File_setup}', [MasterAuditorController::class, 'StoreFileKTA']);
 
+//CLOSING AUDIT
+Route::get('/ClosingAudit', [MasterAuditorController::class, 'ClosingAudit']);
+Route::get('/ClosingAudit2', [AuditorController::class, 'ClosingAudit2']);
+// Route::get('/ClosingAudit/{id_File_setup}', 'MasterAuditorController@ClosingAudit')->name('closing-audit');
+
 //AUDITEE
 Route::get('/Proses_audit', [AuditeeController::class, 'ProsesAudit']);
 Route::get('/Tambah-file-audit/{id_File_setup}', [AuditeeController::class, 'TambahFileAudit']);

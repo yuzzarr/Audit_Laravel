@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('file_setup', function (Blueprint $table) {
             $table->id('id_File_setup');
-            $table->string('nama_file');
-            $table->foreignId('id_Auditee')->references('id_Auditee')->on('auditee');
+            $table->string('file_audit');
+            $table->string('file_kta');
+            $table->string('file_feedback');
+            $table->string('status');
+            $table->foreignId('id_Auditee')->references('id_Auditee')->on('auditee')->onDelete('cascade');
             $table->timestamps();
         });
     }

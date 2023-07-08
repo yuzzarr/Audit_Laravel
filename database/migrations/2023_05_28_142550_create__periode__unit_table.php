@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_Periode_unit');
             $table->date('tanggal_audit');
             $table->string('master_auditor');
+            $table->string('status');
             $table->foreignId('id_Unit')->references('id_Unit')->on('Unit');
             $table->timestamps();
         });

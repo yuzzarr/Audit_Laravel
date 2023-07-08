@@ -43,8 +43,11 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Unit</label>
                             <select name="id_Unit" id="id_Unit">
+                                <option value="{{ $p->id_Unit }}">{{ $p->nama_unit }}</option>
                                 @foreach($unit as $q)
-                                x<option value="{{ $q->id_Unit }}">{{ $q->nama_unit }}</option>
+                                    @if($p->nama_unit !== $q->nama_unit)
+                                    <option value="{{ $q->id_Unit }}">{{ $q->nama_unit }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div> 
@@ -54,8 +57,11 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">No SK</label>
                             <select name="id_Periode" id="id_Periode">
+                                <option value="{{ $p->id_Periode }}">{{ $p->no_sk }}</option>
                                 @foreach($periode as $q)
-                                <option value="{{ $q->id_Periode }}">{{ $q->no_sk }}</option>
+                                    @if($p->no_sk !== $q->no_sk)
+                                    <option value="{{ $q->id_Periode }}">{{ $q->no_sk }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div> 

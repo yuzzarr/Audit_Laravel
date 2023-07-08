@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('administrator', function (Blueprint $table) {
             $table->id('id_Administrator');
-            $table->foreignId('id_User')->references('id_User')->on('user');
+            $table->foreignId('id_User')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
