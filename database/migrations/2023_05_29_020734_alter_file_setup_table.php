@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('file_setup', function (Blueprint $table) {            
-            $table->foreignId('id_ruang_lingkup')->references('id_ruang_lingkup')->on('ruang_lingkup');
+            $table->foreignId('id_ruang_lingkup')->references('id_ruang_lingkup')->on('ruang_lingkup')->onDelete('cascade');
         });
     }
 
