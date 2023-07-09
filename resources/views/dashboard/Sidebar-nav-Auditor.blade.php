@@ -66,8 +66,8 @@
                 <div id="collapseSetup" class="collapse" aria-labelledby="headingSetup"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Setup Ruang Lingkup</a>
-                        <a class="collapse-item" href="#">Setup Proses Audit</a>
+                        <a class="collapse-item" href="/Setup_file2">Setup File</a>
+                        <a class="collapse-item" href="/Data_audit2">Setup Proses Audit</a>
                     </div>
                 </div>
             </li>

@@ -20,10 +20,9 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">@yield('table-title')</h6>
-                <!--a href="/Store1"-->
             </div>
             <!-- Card Body -->
-            <form action="/Store1" method="post">
+            <form action="/Store1" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="card-body">
                     <div class="chart-area">
@@ -79,6 +78,7 @@
 </body>
 
 </html>
+
 <!--DOCTYPE html>
 <html lang="en">
 <head>

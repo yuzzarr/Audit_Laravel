@@ -25,7 +25,6 @@ class PeriodeController extends Controller
     }
 
     public function Store1(Request $request){
-        
 
         $file = $request->file('file_sk');
         $nama_dokumen = 'SK'.$request->tanggal_periode.'.'.$request->file('file_sk')->getClientOriginalExtension();

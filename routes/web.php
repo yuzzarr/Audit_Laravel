@@ -30,6 +30,9 @@ Route::get('/Home', [UserController::class, 'Home']);
 Route::get('/Tambah', [UserController::class, 'Tambah']);
 Route::get('/Hapus/{id}', [UserController::class, 'Hapus']);
 Route::get('/Edit/{id}', [UserController::class, 'Edit']);
+
+Route::patch('/Update/{id}', 'UserController@Update');
+
 Route::post('/Store', [UserController::class, 'Store']);
 Route::post('/Update/{id}', [UserController::class, 'Update']);
 
@@ -90,6 +93,11 @@ Route::get('/HapusFile/{id_Ruang_lingkup}', [MasterAuditorController::class, 'Ha
 Route::get('/Data_audit', [MasterAuditorController::class, 'DataAudit']);
 Route::get('/Tambah-file_kta/{id_File_setup}', [MasterAuditorController::class, 'TambahFileKTA']);
 Route::post('/StoreFileKTA/{id_File_setup}', [MasterAuditorController::class, 'StoreFileKTA']);
+
+//CLOSING AUDIT
+Route::get('/ClosingAudit', [MasterAuditorController::class, 'ClosingAudit']);
+Route::get('/ClosingAudit2', [AuditorController::class, 'ClosingAudit2']);
+// Route::get('/ClosingAudit/{id_File_setup}', 'MasterAuditorController@ClosingAudit')->name('closing-audit');
 
 //AUDITEE
 Route::get('/Proses_audit', [AuditeeController::class, 'ProsesAudit']);

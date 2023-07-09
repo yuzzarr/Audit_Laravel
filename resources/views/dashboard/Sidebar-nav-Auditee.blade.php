@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield('title-Mauditor')</title>
+    <title>@yield('title-auditee')</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="master auditor - index.html">
+                <a class="nav-link" href="auditee - index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -53,36 +53,20 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-            @yield('sidebar-Mauditor-heading')
+            @yield('sidebar-auditee-heading')
             </div>
 
             <!-- Nav Item - Data User Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUser"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
                     aria-expanded="true" aria-controls="collapseUser">
                     <i class="fas fa-fw fa-chart-area"></i> 
-                    <span>User</span>
+                    <span>Ajuan Audit</span>
                 </a>
                 <div id="collapseUser" class="collapse" aria-labelledby="headingUser"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/HomeMasterAuditor">Anggota Auditor</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Data Setup Menu-->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSetup"
-                    aria-expanded="true" aria-controls="collapseSetup">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Setup</span>
-                </a>
-                <div id="collapseSetup" class="collapse" aria-labelledby="headingSetup"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/Setup_file">Setup File</a>
-                        <a class="collapse-item" href="/Data_audit">Setup Proses Audit</a>
+                        <a class="collapse-item" href="/Proses_audit">Proses Audit </a>
                     </div>
                 </div>
             </li>
@@ -101,7 +85,6 @@
             </div>
         </ul>
         <!-- End of Sidebar -->
-
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -145,7 +128,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">@yield('Maudit-profile-id')</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">@yield('auditee-profile-id')</span>
                             <img class="img-profile rounded-circle"
                                 src="{{asset('assets/img/undraw_profile.svg')}}">
                         </a>
@@ -167,12 +150,11 @@
                 </ul>
 
             </nav>
-            
 
-    @yield('content-Maudit')
+    @yield('content-auditee')
     @include('layouts.Footer')
     @include('layouts.Logout-Modal')
 
-</body>
+    </body>
 
 </html>
