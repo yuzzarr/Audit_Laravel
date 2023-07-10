@@ -195,7 +195,20 @@ class AuditorController extends Controller
 
         return redirect('Data_audit2');
     }
-}
+
+    public function ClosingAudit2()
+    {
+        $idPeriodeUnit = session('id_periode_unit');
+
+        $setupfiles = DB::table('file_setup')->join('ruang_lingkup', 'file_setup.id_ruang_lingkup', '=', 'ruang_lingkup.id_Ruang_lingkup')->join('periode_unit', 'ruang_lingkup.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->join('jenis__ruang_lingkup', 'ruang_lingkup.id_Jenis_ruang_lingkup', '=', 'jenis__ruang_lingkup.id_Jenis_ruang_lingkup')->join('unit', 'periode_unit.id_Unit', '=', 'unit.id_Unit')->join('auditee', 'file_setup.id_Auditee', '=', 'auditee.id_Auditee')->join('user', 'auditee.id_User', '=', 'user.id')->where('periode_unit.id_Periode_unit', $idPeriodeUnit)->get();
+
+        foreach ($setupfiles as $setupfile) {
+            $id_File_setup = $setupfile->id_File_setup;
+            
+            DB::table('file_setup')->where('id_File_setup', $id_File_setup)->update([
+                'status' => 'Closed'
+            ]);
+        }
 
         DB::table('periode_unit')->where('id_Periode_unit', $idPeriodeUnit)->update([
             'status' => 'Closed'
@@ -210,3 +223,17 @@ class AuditorController extends Controller
         // echo "id nya ", $id_File_setup;
     }
 }
+
+//         DB::table('periode_unit')->where('id_Periode_unit', $idPeriodeUnit)->update([
+//             'status' => 'Closed'
+//         ]);
+
+//         // Mengupdate status file menjadi "Closed"
+//         // $setupFile = File_setup::find('id_File_setup', $id_File_setup);
+//         // $setupFile->status = 'closed';
+//         // $setupFile->save();
+
+//         return redirect()->back()->with('success', 'Proses "Closing" berhasil dilakukan. File tidak dapat diunggah lagi.');
+//         // echo "id nya ", $id_File_setup;
+//     }
+// }

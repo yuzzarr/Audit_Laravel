@@ -22,7 +22,7 @@
                             <a href="/Tambah-periode-unit"><button type="button" class="btn btn-primary" style="border-radius: 10px; font-size: 1.2vw; width: 6vw; margin-top: 0px; padding: 5px;">Tambah</button></a>
                         </div>
                         <!-- Card Body -->
-                        <div class="card-body">
+                        <div class="card-body" style="height: 800px;">
                             <div class="chart-area">
                                 
                             <table class="table">

@@ -22,6 +22,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"> @yield('auditee-table-title')</h6>
             </div>
             <!-- Card Body -->
+            @foreach($setupfile as $p)
             <form action="/StoreFileAudit/{{ $p->id_File_setup }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
             <div class="card-body">

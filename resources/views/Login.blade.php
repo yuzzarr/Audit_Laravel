@@ -38,7 +38,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang di<br>
                                         Sebelas Maret Audit System</h1>
-                                        <h2><b>Login sebagai Admin </b></h2>
+                                        <h2><b>Login</b></h2>
                                     </div>
                                     <form class="user" action="{{ route('login.perform') }}" method="post">
                                         <div class="form-group alert-danger">

@@ -24,11 +24,11 @@ class LoginController extends Controller
                 'user.nip','user.password'
             ])->where('nip','=', $user->nip)->first();
     
-            $auditee = DB::table('user')->join('auditee', 'user.id','=','auditee.id_User')->join('file_setup', 'auditee.id_Auditee', '=', 'file_setup.id_Auditee')->get([
+            $auditee = DB::table('user')->join('auditee', 'user.id','=','auditee.id_User')->join('file_setup', 'auditee.id_Auditee', '=', 'file_setup.id_Auditee')->where('file_setup.status', '=' ,'Open')->get([
                 'user.nip','user.password','auditee.id_Auditee', 'file_setup.id_Auditee'
             ])->where('nip','=', $user->nip)->first();
     
-            $auditor = DB::table('user')->join('auditor', 'user.id','=','auditor.id_User')->join('periode_unit', 'auditor.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->get([
+            $auditor = DB::table('user')->join('auditor', 'user.id','=','auditor.id_User')->join('periode_unit', 'auditor.id_Periode_unit', '=', 'periode_unit.id_Periode_unit')->where('file_setup.status', '=' ,'Open')->get([
                 'user.nip','user.password', 'auditor.id_Periode_unit', 'periode_unit.master_auditor'
             ])->where('nip','=', $user->nip)->first();
     

@@ -62,22 +62,9 @@
                 <tbody style="font-size: 1vw;">
                     @foreach($setupfile as $p)
                     <tr>
-                        <td rowspan="4">{{ $p->nama_unit }}</td>
+                        <td>{{ $p->nama_unit }}</td>
                         <td>{{ $p->nama_ruang_lingkup }}</td>
                         <td>
-                        <style>
-                            .button-container {
-                                display: flex;
-                                justify-content: flex-end;
-                            }
-                        
-                            .download-button {
-                                margin-left: 8vw;
-                                margin-top: -4.5vh;
-                                font-size: 0.75vw;
-                                width: 7vw;
-                            }
-                        </style>
                             <div class="button-container">
                             @if ($p->file_audit)
                             <a href="FileAudit/{{ $p->file_audit }}"><button  class="btn btn-primary download-button" style="border-radius: 10px; font-size: 1vw; width: 6vw; padding: 5px; background-color: #22be96; border-color: #22be96;" type="button">Download</button></a>

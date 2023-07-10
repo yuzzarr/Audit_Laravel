@@ -43,9 +43,9 @@
                 <tbody style="font-size: 1vw;">
                     @foreach($setupfile as $p)
                     <tr>
-                        <td rowspan="4">{{ $p->nama_unit }}</td>
+                        <td>{{ $p->nama_unit }}</td>
                         <td>{{ $p->nama_ruang_lingkup }}
-                            <a href="FileRuangLingkup/{{ $p->file_ruang_lingkup }}"><button  class="btn btn-primary download-button" style="border-radius: 10px; font-size: 1vw; width: 6vw; padding: 5px; background-color: #22be96; border-color: #22be96;" type="button">Download</button></a>
+                            <a href="FileRuangLingkup/{{ $p->file_ruang_lingkup }}"><button  class="btn btn-primary" style="border-radius: 10px; font-size: 1vw; width: 6vw; padding: 5px; background-color: #22be96; border-color: #22be96;" type="button">Download</button></a>
                         </td>
                         <td>{{ $p->nama_jenis_ruang_lingkup }}
                         </td>
@@ -54,12 +54,12 @@
                         <style>
                             .button-container {
                                 display: flex;
-                                justify-content: flex-end;
+                                justify-content: space-between;
                             }
                         
                             .download-button {
-                                margin-left: 8vw;
-                                margin-top: -4.5vh;
+                                margin-left: 1vw;
+                                margin-top: 0vh;
                                 font-size: 0.75vw;
                                 width: 7vw;
                             }
@@ -67,10 +67,9 @@
                             <div class="button-container">
                             @if ($p->status == 'Open')
                                 <a href="/Tambah-file-audit/{{ $p->id_File_setup }}"><button class="btn btn-primary" style="border-radius: 10px; font-size: 1vw; width: 6vw; margin-top: 0vh;" type="button">Unggah</button></a>
-                            @if ($p->file_audit)
+                                @if ($p->file_audit)
                                 <a href="FileAudit/{{ $p->file_audit }}"><button  class="btn btn-primary download-button" style="border-radius: 10px; font-size: 1vw; width: 6vw; padding: 5px; background-color: #22be96; border-color: #22be96;" type="button">Download</button></a>
-                            @else
-                                File belum tersedia
+                            @endif
                             @endif
                             </div>
                         </td>
